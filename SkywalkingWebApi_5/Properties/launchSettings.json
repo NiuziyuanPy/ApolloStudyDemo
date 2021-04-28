@@ -1,0 +1,15 @@
+﻿{
+  "profiles": {
+    "SkywalkingWebApi_5": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "applicationUrl": "http://localhost:5005",
+      "environmentVariables": {
+        "SKYWALKING__SERVICENAME": "skywalkingwebApi_5",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore"
+      }
+    }
+  }
+}

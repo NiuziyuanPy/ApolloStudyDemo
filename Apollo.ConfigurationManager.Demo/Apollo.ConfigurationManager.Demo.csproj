@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Apollo.ConfigAdapter.Yaml\Apollo.ConfigAdapter.Yaml.csproj" />
+    <ProjectReference Include="..\Apollo.ConfigurationManager\Apollo.ConfigurationManager.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "SkyWalking.Sample.Frontend": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore",
+        "SKYWALKING__SERVICENAME": "webapi_db01"
+      },
+      "applicationUrl": "http://localhost:5001/"
+    }
+  }
+}
