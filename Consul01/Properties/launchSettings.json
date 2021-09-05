@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Consul01": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger/index.html",
+      "environmentVariables": {
+        "HOST_PORT": "5000",
+        "HOST_IP": "10.0.4.5",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SERVER_NAME": "Consul01"
+      },
+      "applicationUrl": "http://10.0.4.5:5000"
+    }
+  }
+}

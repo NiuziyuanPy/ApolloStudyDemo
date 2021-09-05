@@ -13,8 +13,6 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.*" />
 
     <Reference Include="System.Net.Http" Condition="'$(TargetFramework)' == 'net45'" />
-
-    <ProjectReference Include="..\Apollo\Apollo.csproj" />
   </ItemGroup>
 
 </Project>
