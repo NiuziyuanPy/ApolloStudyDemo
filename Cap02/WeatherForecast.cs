@@ -1,6 +1,6 @@
 using System;
 
-namespace Cap01
+namespace Cap02
 {
     public class WeatherForecast
     {
