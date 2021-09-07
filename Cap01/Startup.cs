@@ -30,7 +30,10 @@ namespace Cap01
             services.AddCap(x =>
             {
                 x.UseEntityFramework<AppDbContext>();
-                x.UseRabbitMQ("10.0.4.52");
+                x.UseRabbitMQ(mq =>
+                {
+                    mq.HostName = "10.0.4.52";
+                });
                 x.UseDashboard();
                 x.FailedRetryCount = 5;//失败后的操作次数
                 x.CollectorCleaningInterval = 3;//操作间隔

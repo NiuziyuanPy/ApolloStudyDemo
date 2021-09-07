@@ -11,6 +11,12 @@
         "SERVER_NAME": "Consul01"
       },
       "applicationUrl": "http://10.0.4.5:5000"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger/index.html",
+      "publishAllPorts": true
     }
   }
 }

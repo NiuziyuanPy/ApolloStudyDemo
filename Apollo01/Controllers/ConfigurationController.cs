@@ -25,7 +25,7 @@ namespace Apollo01.Controllers
 
             return new ConfigDto
             {
-                UserTest = _configuration["AllowedHosts"],
+                UserTest = _configuration["UserTest"],
                 EnterpriseWeChatRead = _configuration["EnterpriseWeChatRead"]
             };
         }
