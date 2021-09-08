@@ -1,16 +1,15 @@
-﻿using System;
-using System.Data;
-using System.Threading.Tasks;
-using Cap01;
-using Dapper;
+﻿using Dapper;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
 using MySqlConnector;
+using System;
+using System.Data;
+using System.Threading.Tasks;
 
 namespace Cap01.Controllers
 {
     [ApiController]
-    [Route("api/Cap/Values")]
+    [Route("Api/Cap/Values")]
     public class ValuesController : ControllerBase
     {
         private readonly ICapPublisher _capBus;
@@ -20,7 +19,7 @@ namespace Cap01.Controllers
             _capBus = capPublisher;
         }
 
-        [Route("~/without/transaction")]
+        [HttpGet("WithoutTransaction")]
         public async Task<IActionResult> WithoutTransaction()
         {
             await _capBus.PublishAsync("sample.rabbitmq.mysql", DateTime.Now);
@@ -28,7 +27,7 @@ namespace Cap01.Controllers
             return Ok();
         }
 
-        [Route("~/adonet/transaction")]
+        [HttpGet("AdonetWithTransaction")]
         public IActionResult AdonetWithTransaction()
         {
             using (var connection = new MySqlConnection(AppDbContext.ConnectionString))
@@ -48,7 +47,7 @@ namespace Cap01.Controllers
             return Ok();
         }
 
-        [Route("~/ef/transaction")]
+        [HttpGet("EntityFrameworkWithTransaction")]
         public IActionResult EntityFrameworkWithTransaction([FromServices]AppDbContext dbContext)
         {
             using (var trans = dbContext.Database.BeginTransaction(_capBus, autoCommit: false))

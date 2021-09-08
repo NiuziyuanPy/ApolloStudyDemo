@@ -26,7 +26,10 @@ namespace Apollo01.Controllers
             return new ConfigDto
             {
                 UserTest = _configuration["UserTest"],
-                EnterpriseWeChatRead = _configuration["EnterpriseWeChatRead"]
+                EnterpriseWeChatRead = _configuration["EnterpriseWeChatRead"],
+                ServerPath = _configuration["Consul:ServerPath"],
+                CheckPath = _configuration["Consul:CheckPath"],
+                Token = _configuration["Consul:Token"]
             };
         }
 
@@ -37,5 +40,11 @@ namespace Apollo01.Controllers
         public string UserTest { get; set; }
 
         public string EnterpriseWeChatRead { get; set; }
+
+        public string ServerPath { get; set; }
+
+        public string CheckPath { get; set; }
+
+        public string Token { get; set; }
     }
 }

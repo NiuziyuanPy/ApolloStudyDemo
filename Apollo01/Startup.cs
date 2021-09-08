@@ -35,7 +35,7 @@ namespace Apollo01
                     //TermsOfService = "None",
                     Contact = new OpenApiContact
                     {
-                        Name = "Mr.Wang",
+                        Name = "Mr",
                         Email = string.Empty,
                         //Url =new Uri("www.tect.com")
                     }
