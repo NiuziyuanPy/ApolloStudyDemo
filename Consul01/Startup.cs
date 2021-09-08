@@ -27,8 +27,6 @@ namespace Consul01
 
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             //注册Swagger生成器，定义一个和多个Swagger 文档
             services.AddSwaggerGen(c =>
             {
@@ -55,8 +53,6 @@ namespace Consul01
                 c.IncludeXmlComments(xmlPath);
             });
 
-
-
             services.AddControllers();
         }
 
@@ -79,7 +75,7 @@ namespace Consul01
             var port = Environment.GetEnvironmentVariable("HOST_PORT");
 
             var serverName = Environment.GetEnvironmentVariable("SERVER_NAME");
-            //api/Consul01/HealthCheck
+
             if (!string.IsNullOrEmpty(ip) && !string.IsNullOrEmpty(port))
             {
                 ServiceEntity serviceEntity = new ServiceEntity
@@ -88,8 +84,8 @@ namespace Consul01
                     Port = Convert.ToInt32(port),
                     ServiceName = serverName,
                     ServerPath = "http://10.0.4.52:8500",
-                    CheckPath = "/api/Consul01/HealthCheck",
-                    //Token = configuration["Consul:Token"]
+                    CheckPath = "/api/Consul/HealthCheck",
+                    Token = "57992035-2d02-439d-ad77-2365a914c9f4"
                 };
                 app.RegisterConsul(lifetime, serviceEntity);
             }

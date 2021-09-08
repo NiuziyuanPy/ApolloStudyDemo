@@ -5,7 +5,7 @@ namespace Consul01.Controllers.HealthCheck
     /// <summary>
     /// 心跳检查
     /// </summary>
-    [Route("api/Consul01/HealthCheck")]
+    [Route("api/Consul/HealthCheck")]
     public class HealthCheckController  : ControllerBase
     {
         /// <summary>
