@@ -57,6 +57,7 @@ namespace Cap02.Controllers
             using var connection = new MySqlConnection(AppDbContext.ConnectionString);
             // 模拟扣减库存
             using var transaction = connection.BeginTransaction(_capBus, false);
+
             try
             {
                 var product = connection.QueryFirst<StockEntity>(
@@ -76,11 +77,13 @@ namespace Cap02.Controllers
                 // _capPublisher.Publish();
                 transaction.Commit();
 
-                Console.WriteLine(order.OrderNo);
+                Console.WriteLine($"订单号：{order.OrderNo}");
             }
             catch (Exception ex)
             {
                 transaction.Rollback();
+                Console.WriteLine("-------------------------------失败报错-------------------------------------------------");
+                throw;
             }
 
         }

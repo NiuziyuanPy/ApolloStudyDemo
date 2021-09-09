@@ -4,6 +4,12 @@
         <name>Cap01</name>
     </assembly>
     <members>
+        <member name="M:Cap01.Controllers.CapOrderController.AddOrder">
+            <summary>
+            新增订单 ADO方式
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:System.Diagnostics.CodeAnalysis.MemberNotNullAttribute">
             <summary>
                 Specifies that the method or property will ensure that the listed field and property members have

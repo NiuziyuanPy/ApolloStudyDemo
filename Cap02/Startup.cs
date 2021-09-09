@@ -34,8 +34,6 @@ namespace Cap02
                     mq.VirtualHost = "/";
                 });
                 x.UseDashboard();
-                x.FailedRetryCount = 5;//失败后的操作次数
-                x.CollectorCleaningInterval = 3;//操作间隔
 
                 x.FailedRetryCount = 15;// 失败重试最高次，默认是50次
 

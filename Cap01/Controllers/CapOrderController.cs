@@ -49,7 +49,7 @@ namespace Cap01.Controllers
                     @$"INSERT INTO `Order_Test`(`OrderNo`, `ProductName`, `ProductNo`, `Count`, `CreateDate`) VALUES(@OrderNo,@ProductName, @ProductNo,@Count, @CreateDate);",
                     orderEntity,
                     (IDbTransaction) transaction.DbTransaction);
-                
+
                 _capBus.Publish("Order.Create.Success", orderEntity);
 
                 transaction.Commit();
@@ -59,7 +59,8 @@ namespace Cap01.Controllers
             catch (Exception ex)
             {
                 transaction.Rollback();
-                return "新增订单失败";
+                Console.WriteLine("-------------------------------失败报错-------------------------------------------------");
+                throw;
             }
         }
 
