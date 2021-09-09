@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52301167-7BBA-48C2-BA36-08270D57D2C4}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		README.md = README.md
 	EndProjectSection
@@ -40,6 +41,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{BE186F25-D07E-4618-AB72-D3B9C37FA64D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cap02", "Cap02\Cap02.csproj", "{A101E61E-9797-471A-A762-BB6FD64B6E40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{490C20E3-954C-47C4-A41D-487EB381DD39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -207,6 +210,18 @@ Global
 		{A101E61E-9797-471A-A762-BB6FD64B6E40}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A101E61E-9797-471A-A762-BB6FD64B6E40}.Release|x86.ActiveCfg = Release|Any CPU
 		{A101E61E-9797-471A-A762-BB6FD64B6E40}.Release|x86.Build.0 = Release|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Debug|x86.Build.0 = Debug|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Release|x86.ActiveCfg = Release|Any CPU
+		{490C20E3-954C-47C4-A41D-487EB381DD39}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -225,6 +240,7 @@ Global
 		{C7E5BD06-3FD2-4035-AE47-FCE2C727B0E0} = {12417079-E62C-4F29-ADDE-5EABD77331E2}
 		{BE186F25-D07E-4618-AB72-D3B9C37FA64D} = {8DFAE54D-7332-4545-832A-B79653F1F4D1}
 		{A101E61E-9797-471A-A762-BB6FD64B6E40} = {12417079-E62C-4F29-ADDE-5EABD77331E2}
+		{490C20E3-954C-47C4-A41D-487EB381DD39} = {8DFAE54D-7332-4545-832A-B79653F1F4D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F567DF02-5944-4752-8996-BF7B12DC4DF3}

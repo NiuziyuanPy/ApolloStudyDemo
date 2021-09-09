@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Cap01.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

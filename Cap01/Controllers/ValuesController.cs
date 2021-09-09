@@ -18,6 +18,8 @@ namespace Cap01.Controllers
         {
             _capBus = capPublisher;
         }
+        
+
 
         [HttpGet("WithoutTransaction")]
         public async Task<IActionResult> WithoutTransaction()

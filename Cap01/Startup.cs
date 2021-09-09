@@ -37,6 +37,23 @@ namespace Cap01
                 x.FailedRetryCount = 5;//失败后的操作次数
                 x.CollectorCleaningInterval = 3;//操作间隔
                 
+                x.FailedRetryCount = 15;// 失败重试最高次，默认是50次
+                
+                x.FailedRetryInterval = 30;// 失败重试间隔，默认是60s
+
+                // 超出最高重试次数的回调
+                x.FailedThresholdCallback = failedInfo =>
+                {
+                    // 这里通过发邮件、短信等信息通知人工处理，系统不能自动搞定了
+                    Console.WriteLine("需要人工处理啦");
+                };
+
+                // 设置发送消息的线程数据，大于1之后，不保证消息顺序
+                //x.ProducerThreadCount = 1;
+                // 成功消息保存的时间，以秒为单位，默认是1天
+                x.SucceedMessageExpiredAfter = 12 * 3600;
+
+
             });
 
             //注册Swagger生成器，定义一个和多个Swagger 文档
@@ -44,13 +61,13 @@ namespace Cap01
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "My API",
+                    Title = "OrderApi",
                     Version = "v1",
-                    Description = "A simple example ASP.NET Core Web API",
+                    Description = "订单服务",
                     //TermsOfService = "None",
                     Contact = new OpenApiContact
                     {
-                        Name = "Mr.Wang",
+                        Name = "Mr.Niu",
                         Email = string.Empty,
                         //Url =new Uri("www.tect.com")
                     }
@@ -84,7 +101,7 @@ namespace Cap01
             //启用中间件服务对swagger-ui，指定Swagger JSON终结点
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "OrderApi V1");
             });
 
             app.UseEndpoints(endpoints =>
