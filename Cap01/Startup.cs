@@ -25,18 +25,16 @@ namespace Cap01
 
             services.AddCap(x =>
             {
-                x.UseEntityFramework<AppDbContext>();
+                x.UseEntityFramework<AppDbContext>(); //数据库信息
                 x.UseRabbitMQ(mq =>
                 {
                     mq.HostName = "10.0.4.52";
                     mq.Password = "guest";
                     mq.UserName = "guest";
                     mq.VirtualHost = "/";
-                });
-                x.UseDashboard();
-                x.FailedRetryCount = 5;//失败后的操作次数
-                x.CollectorCleaningInterval = 3;//操作间隔
-                
+                });//MQ信息
+                x.UseDashboard();//仪表信息
+       
                 x.FailedRetryCount = 15;// 失败重试最高次，默认是50次
                 
                 x.FailedRetryInterval = 30;// 失败重试间隔，默认是60s
@@ -52,7 +50,6 @@ namespace Cap01
                 //x.ProducerThreadCount = 1;
                 // 成功消息保存的时间，以秒为单位，默认是1天
                 x.SucceedMessageExpiredAfter = 12 * 3600;
-
 
             });
 

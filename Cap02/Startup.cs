@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
 using System.IO;
+using DotNetCore.CAP.Monitoring;
 
 namespace Cap02
 {
