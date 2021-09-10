@@ -51,6 +51,7 @@ namespace Cap02.Controllers
 
         [NonAction]
         [CapSubscribe("Order.Create.Success")]
+        //[CapSubscribe("x")] 也可以订阅多个
         public void UpdateStock(OrderEntity order)
         {
             //throw new Exception("扣减库存异常了");

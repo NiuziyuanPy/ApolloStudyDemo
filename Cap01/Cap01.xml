@@ -10,5 +10,10 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Cap01.Controllers.CapOrderController.PublisherTest">
+            <summary>
+            补偿事务测试
+            </summary>
+        </member>
     </members>
 </doc>

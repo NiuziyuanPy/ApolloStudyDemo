@@ -5,6 +5,7 @@ using Models;
 using MySqlConnector;
 using System;
 using System.Data;
+using Newtonsoft.Json.Linq;
 
 namespace Cap01.Controllers
 {
@@ -52,23 +53,82 @@ namespace Cap01.Controllers
 
                 _capBus.Publish("Order.Create.Success", orderEntity);
 
+
+                //throw new Exception("手动异常");
+
                 transaction.Commit();
 
                 return "新增订单成功";
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+                transaction.Rollback();//回滚
                 Console.WriteLine("-------------------------------失败报错-------------------------------------------------");
                 throw;
             }
         }
 
 
+        // =============  Publisher =================
+        /// <summary>
+        /// 补偿事务测试
+        /// </summary>
+        [HttpGet("PublisherTest")]
+        public void PublisherTest()
+        {
+            using var connection = new MySqlConnection(AppDbContext.ConnectionString);
+            // 开启本地事务
+            using var transaction = connection.BeginTransaction(_capBus, false);
+            _capBus.Publish("place.order.qty.deducted", new OrderEntity
+                {
+                    OrderNo = Guid.NewGuid().ToString(),
+                    ProductName = "商品01",
+                    ProductNo = "Product01",
+                    Count = 5,
+                    CreateDate = DateTime.Now
+                },
+                "place.order.mark.status");
+            transaction.Commit();
+        }
+
+        // publisher using `callbackName` to subscribe consumer result
+        [NonAction]
+        [CapSubscribe("place.order.mark.status")]
+        public void MarkOrderStatus(string param)
+        {
+            Console.WriteLine(param);
+            if (1==1)
+            {
+                //param.Count = 10;
+
+                Console.WriteLine("mark order status to succeeded");
+            }
+            else
+            {
+                Console.WriteLine("mark order status to failed");
+            }
+        }
+
+        // =============  Consumer 补偿事务 ===================
+        [NonAction]
+        [CapSubscribe("place.order.qty.deducted")]
+        public OrderEntity DeductProductQty(string param)
+        {
+            Console.WriteLine(param);
+            Console.WriteLine("business logic"); 
+
+            return new OrderEntity
+            {
+                OrderNo = Guid.NewGuid().ToString(),
+                ProductName = "商品01",
+                ProductNo = "Product01",
+                Count = 5,
+                CreateDate = DateTime.Now
+            };
+        }
 
 
 
 
-
-    }
+}
 }
