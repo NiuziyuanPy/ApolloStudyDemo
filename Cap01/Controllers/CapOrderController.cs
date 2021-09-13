@@ -36,7 +36,7 @@ namespace Cap01.Controllers
                 CreateDate = DateTime.Now
             };
 
-            //操作数据库
+            //数据库
             using var connection = new MySqlConnection(AppDbContext.ConnectionString);
             // 开启本地事务
             using var transaction = connection.BeginTransaction(_capBus, false);
